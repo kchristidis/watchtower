@@ -1,0 +1,6 @@
+%button.btn.btn-default.reload-btn{onclick: "load_data()"}
+  Refresh
+:javascript
+  simple_line();
+  load_data();
+  setInterval(load_data,60000);

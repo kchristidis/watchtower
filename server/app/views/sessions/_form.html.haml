@@ -1,0 +1,16 @@
+= form_tag sessions_path, class: 'form-horizontal' do
+  %fieldset.col-md-5
+    .form-group.input-group
+      %span.input-group-addon
+        = fa_icon 'user'
+      = text_field_tag :username, '', placeholder: "username", class: 'form-control'
+    .form-group.input-group
+      %span.input-group-addon
+        = fa_icon 'key'
+      = password_field_tag :password, |
+        '',                           |
+        placeholder: "password",      |
+        class: 'form-control'         |
+    .actions
+      = button_tag :submit, class: 'btn btn-default' do
+        = fa_icon 'sign-in', text: 'Log In'

@@ -1,0 +1,7 @@
+.container.pad20
+  = legend 'Editing User'
+  = render 'form'
+  %br
+  = legend 'Delete User'
+  = link_to @user, method: :delete, confirm: 'Delete your account?', class: 'btn btn-danger' do
+    = fa_icon 'times', text: 'Delete'

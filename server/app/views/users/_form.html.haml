@@ -1,0 +1,34 @@
+- readonly ||= false
+= render 'shared/errors', model: @user
+= form_for @user, class: 'form-horizontal' do |f|
+  .form-group.input-group
+    %span.input-group-addon
+      = fa_icon 'user'
+    = f.text_field :username,
+      placeholder: "username",
+      class: 'form-control',
+      readonly: readonly
+  .form-group.input-group
+    %span.input-group-addon
+      = fa_icon 'key'
+    = f.password_field :password,
+      placeholder: "password",
+      title: 'At least one upper case, one lower case, and one non-letter',
+      class: "instant-tooltip form-control",
+      'data-container' => 'body',
+      readonly: readonly
+  .form-group.input-group
+    %span.input-group-addon
+      = fa_icon 'key'
+    = f.password_field :password_confirmation,
+      placeholder: "password_confirmation",
+      title: 'At least one upper case, one lower case, and one non-letter',
+      class: "instant-tooltip form-control",
+      'data-container' => 'body',
+      readonly: readonly
+  - unless readonly
+    .actions
+      = link_back class: 'btn btn-default' do
+        = fa_icon 'arrow-left', text: 'Back'
+      = f.button :submit, class: 'btn btn-default' do
+        = fa_icon 'save', text: 'Save'

@@ -1,0 +1,8 @@
+*.swp
+*.pyc
+*env
+.python-version
+
+secrets.py
+
+sensors.ini

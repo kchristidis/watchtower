@@ -1,0 +1,25 @@
+%nav.navbar.navbar-inverse{role: 'naviagation'}
+  .container
+    .col-md-12
+      .navbar-header
+        = button_tag '', class: 'navbar-toggle', data: { toggle: 'collapse', target: 'nav-collapse' } do
+          = fa_icon 'bars'
+        = link_to :root, class: 'navbar-brand' do
+          TPSB
+          = fa_icon 'line-chart'
+      .collapse.navbar-collapse
+        %ul.nav.navbar-nav.navbar-right
+          %li
+            = link_to '/apidoc', target: '_blank' do
+              = fa_icon 'code', text: 'API'
+          - if current_user
+            %li
+              = link_to current_user do
+                = fa_icon 'user', text: "#{current_user.username}"
+            %li
+              = link_to :logout do
+                = fa_icon 'sign-out', text: 'Log Out'
+          - else
+            %li
+              = link_to :root do
+                = fa_icon 'sign-in', text: 'Log In'

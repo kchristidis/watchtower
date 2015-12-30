@@ -1,0 +1,33 @@
+- @sensors ||= @sensor_module.sensors
+
+= legend "Sensors on Sensor Module #{@sensor_module.name}"
+
+%table.show-page-table
+  %thead
+    %tr
+      %th Name
+      %th Sensor module
+      %th
+      %th
+      %th
+      
+  %tbody
+    - @sensors.each do |sensor|
+      %tr
+        %td= sensor.name
+        %td= sensor.sensor_module_id
+        %td= link_to 'Show',
+          sensor
+        %td= link_to 'Edit',
+          edit_sensor_path(sensor)
+        %td= link_to 'Destroy',
+          sensor,
+          :method => :delete,
+          :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to new_sensor_module_sensor_path(@sensor_module),
+  class: 'btn btn-default' do
+  = fa_icon 'plus-circle'
+  New Sensor

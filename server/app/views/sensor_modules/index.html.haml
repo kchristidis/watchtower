@@ -1,0 +1,28 @@
+- @sensor_modules ||= @user.sensor_modules
+
+= legend "Sensor Modules (Raspberry Pis)"
+
+%table.show-page-table
+  %thead
+    %tr
+      %th Name
+      %th Location
+      %th User
+      %th
+      %th
+      %th
+      
+  %tbody
+    - @sensor_modules.each do |sensor_module|
+      %tr
+        %td= sensor_module.name
+        %td= sensor_module.location
+        %td= "#{sensor_module.user.username} (#{sensor_module.user_id})"
+        %td= link_to 'Show', sensor_module
+        %td= link_to 'Edit', edit_sensor_module_path(sensor_module)
+        %td= link_to 'Destroy', sensor_module, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to new_sensor_module_path, class: 'btn btn-default' do
+  = fa_icon 'plus-circle', text: 'New Sensor Module'

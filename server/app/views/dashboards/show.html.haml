@@ -1,0 +1,47 @@
+.dashboard-graph
+  .control-panel.panel.panel-default{style: 'display: none'}
+    .panel-heading
+      %h3.panel-title
+        = link_back class: 'btn btn-default' do
+          = fa_icon 'arrow-left', text: 'Back'
+        = link_to edit_dashboard_path(@dashboard), class: 'btn btn-default' do
+          = fa_icon 'pencil', text: 'Edit'
+        Graph Configuration
+    .panel-body
+      .col-md-6
+        - config = DashboardConfig.parse(@config)
+        = label_tag do
+          Plot Visibility
+        - @accessible_sensors.each do |sensor|
+          .checkbox.visible-sensors
+            = label_tag do
+              = check_box_tag "#{sensor.id}", sensor.id, config.plots.try(:[], sensor.id).try(:[], 'visible')
+              = color_field "#{sensor.id}", "color", class: "line-color#{sensor.id}", value: config.plots[sensor.id].try(:[], 'color')
+              = "[#{sensor.id}]: #{sensor.sensor_module.name} - #{sensor.name}"
+      .col-md-6
+        .form-group
+          = label_tag do
+            Refresh Interval (seconds): 
+            = text_field_tag 'refresh-interval', (config.refresh_rate || 1800)
+        .form-group
+          = label_tag do
+            Time From: 
+            = text_field_tag 'time-from',  config.time_from || (DateTime.now-1.day).strftime('%b %d %H:%M')
+        .form-group
+          = label_tag do
+            Time To: 
+            = text_field_tag 'time-to', config.time_to || DateTime.now.strftime('%b %d %H:%M')
+        .form-group
+          = label_tag do
+            Limit: 
+            = text_field_tag 'limit', config.limit || 25
+        .form-group
+          = button_tag class: 'btn btn-default add-custom-signal' do
+            Add Custom Signal
+          .custom-signals
+:javascript
+  var config = JSON.parse(#{@config.to_json});
+  var graph_title = '#{@dashboard.name}'
+  setup_canvas();
+  $('.visible-sensors input[type=checkbox]').trigger("change");
+  load_data();

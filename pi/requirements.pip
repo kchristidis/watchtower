@@ -1,0 +1,5 @@
+ConfigParser
+imutils
+numpy
+psycopg2
+smbus-cffi

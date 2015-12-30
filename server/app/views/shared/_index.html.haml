@@ -1,0 +1,23 @@
+- model ||= (records.first || params[:controller].classify.constantize.new).class
+- records ||= model.all
+- show_header ||= false
+- links ||= false
+- if show_header
+  .page-header
+    %h1
+      = model.to_s.titleize.pluralize
+.table
+  %table.table.table-striped.table-hover
+    %tr
+      - model.column_names.each do |column_name|
+        %th
+          = column_name
+    - records.each do |instance|
+      %tr
+        - model.column_names.each do |column_name|
+          %td
+            - if links
+              = link_to instance do
+                = instance.try column_name.to_sym
+            - else
+              = instance.try column_name.to_sym

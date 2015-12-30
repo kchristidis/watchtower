@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Sensor module:
+  = @sensor_module_access.sensor_module_id
+%p
+  %b User:
+  = @sensor_module_access.user_id
+
+= link_to 'Edit', edit_sensor_module_access_path(@sensor_module_access)
+\|
+= link_to 'Back', sensor_module_accesses_path

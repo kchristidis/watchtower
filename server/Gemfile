@@ -1,0 +1,53 @@
+source 'https://rubygems.org'
+
+ruby '2.1.7'
+
+gem 'rails', '~> 4.0.0'
+
+gem 'active_model_serializers'
+gem 'bcrypt', '>= 3.0.0'
+gem 'bootstrap-sass'
+gem 'browser-timezone-rails'
+gem 'cf-autoconfig', '~> 0.2.1'
+gem 'd3-rails'
+gem 'fog'
+gem 'font-awesome-rails'
+gem 'forecast_io'
+gem 'grape'
+gem 'grape-entity'
+gem 'grape-swagger'
+gem 'grape-swagger-rails'
+gem 'grape-active_model_serializers'
+gem 'haml-rails'
+gem 'hashie-forbidden_attributes'
+gem 'jbuilder', '>= 1.0.1'
+gem 'jquery-rails'
+gem 'jquery-ui-sass-rails'
+gem 'json'
+gem 'less-rails'
+gem 'msgpack'
+gem 'pg'
+gem 'puma'
+gem 'rack-contrib'
+gem 'rails_12factor', group: :production
+gem 'sass-rails', '~> 4.0.2'
+gem 'therubyracer'
+gem 'tipsy-rails'
+gem 'turbolinks'
+gem 'uglifier', '>= 1.3.0'
+gem 'will_paginate'
+
+group :development do
+  gem 'byebug'
+  gem 'railroady'
+  gem 'spring'
+  gem 'pry-rails'
+end
+
+group :test do
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'simplecov'
+  gem 'guard-rails'
+  gem 'guard-rspec'
+end

@@ -1,0 +1,23 @@
+%h1 Listing data_points
+
+%table
+  %thead
+    %tr
+      %th Sensor
+      %th Data
+      %th
+      %th
+      %th
+      
+  %tbody
+    - @data_points.each do |data_point|
+      %tr
+        %td= data_point.sensor_id
+        %td= data_point.data
+        %td= link_to 'Show', data_point
+        %td= link_to 'Edit', edit_data_point_path(data_point)
+        %td= link_to 'Destroy', data_point, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Data point', new_data_point_path

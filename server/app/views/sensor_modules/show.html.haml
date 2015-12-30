@@ -1,0 +1,18 @@
+.col-md-6.col-sm-6
+  = legend "#{fa_icon 'sitemap'} Sensor Module: #{@sensor_module.name}"
+  = render 'form', readonly: true
+.col-md-6.col-sm-6
+  = render template: 'sensors/index'
+.col-md-12.pad20
+.col-md-6.col-sm-6
+.col-md-6.col-sm-6
+  = render template: 'sensor_module_accesses/index'
+
+.col-md-12.col-sm-12
+  = link_to @sensor_module.user, class: 'btn btn-default' do
+    = fa_icon 'arrow-left', text: 'Back'
+  = link_to edit_sensor_module_path(@sensor_module), class: 'btn btn-default' do
+    = fa_icon 'pencil', text: 'Edit'
+.col-md-12.pad20
+.col-md-12
+  = render 'data_points', data_points: @sensor_module.data_points.order(timestamp: :desc).limit(50)

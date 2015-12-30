@@ -1,0 +1,9 @@
+.col-md-6.col-sm-6
+  = legend 'Sensor Access'
+  = render 'form', readonly: true
+.col-md-6.col-sm-6
+.col-md-12.col-sm-12
+  = link_to @sensor_access.sensor, class: 'btn btn-default' do
+    = fa_icon 'arrow-left', text: 'Back'
+  = link_to edit_sensor_access_path(@sensor_access), class: 'btn btn-default' do
+    = fa_icon 'pencil', text: 'Edit'

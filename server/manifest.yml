@@ -1,0 +1,9 @@
+# push command: cf push -s cflinuxfs2 -b https://github.com/cloudfoundry/ruby-buildpack.git tpsb
+applications:
+- disk_quota: 1024M
+  host: tpsb
+  name: tpsb
+  path: .
+  domain: mybluemix.net
+  instances: 3
+  memory: 4096M

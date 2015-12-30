@@ -1,0 +1,38 @@
+- readonly ||= false
+- id_readonly = true if id_readonly.nil?
+= render 'shared/errors', model: @sensor_module
+= form_for @sensor_module, class: 'form-horizontal' do |f|
+  .form-group.input-group
+    %span.input-group-addon
+      = fa_icon 'tag'
+    = f.text_field :id,
+      placeholder: "id",
+      class: 'form-control',
+      readonly: id_readonly
+  .form-group.input-group
+    %span.input-group-addon
+      = fa_icon 'sitemap'
+    = f.text_field :name,
+      placeholder: "name",
+      class: 'form-control',
+      readonly: readonly
+  .form-group.input-group
+    %span.input-group-addon
+      = fa_icon 'location-arrow'
+    = f.text_field :location,
+      placeholder: "location",
+      class: 'form-control',
+      readonly: readonly
+  .form-group.input-group
+    %span.input-group-addon
+      = fa_icon 'user'
+    = f.text_field :user_id,
+      placeholder: "user_id",
+      class: 'form-control',
+      readonly: true
+  - unless readonly
+    .actions
+      = link_to @sensor_module.user, class: 'btn btn-default' do
+        = fa_icon 'arrow-left', text: 'Back'
+      = f.button :submit, class: 'btn btn-default' do
+        = fa_icon 'save', text: 'Save'

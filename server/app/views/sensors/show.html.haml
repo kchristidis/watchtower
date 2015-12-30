@@ -1,0 +1,14 @@
+.col-md-6.col-sm-6
+  = legend "#{fa_icon 'compass'} Sensor: #{@sensor.name}"
+  = render 'form', readonly: true
+.col-md-6.col-sm-6
+  = render template: 'sensor_accesses/index'
+.col-md-12.col-sm-12
+  = link_to @sensor.sensor_module, class: 'btn btn-default' do
+    = fa_icon 'arrow-left', text: 'Back'
+  = link_to edit_sensor_path(@sensor), class: 'btn btn-default' do
+    = fa_icon 'pencil', text: 'Edit'
+.col-md-12.pad20
+.col-md-12
+  = render 'data_points',
+    data_points: @sensor.data_points.order(timestamp: :desc).limit(50)

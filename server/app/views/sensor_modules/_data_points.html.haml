@@ -1,0 +1,3 @@
+= legend "Raw Data Points for #{@sensor_module.name}"
+
+= render 'shared/index', model: DataPoint, records: data_points.order(timestamp: :desc)

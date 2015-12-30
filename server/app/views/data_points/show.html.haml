@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Sensor:
+  = @data_point.sensor_id
+%p
+  %b Data:
+  = @data_point.data
+
+= link_to 'Edit', edit_data_point_path(@data_point)
+\|
+= link_to 'Back', data_points_path

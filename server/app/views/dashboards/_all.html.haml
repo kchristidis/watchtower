@@ -1,0 +1,26 @@
+- @dashboards ||= @user.dashboards
+
+= legend "Saved Dashboards"
+
+%table.show-page-table
+  %thead
+    %tr
+      %th Name
+      %th User
+      %th
+      %th
+      %th
+      
+  %tbody
+    - @dashboards.each do |dashboard|
+      %tr
+        %td= dashboard.name
+        %td= dashboard.user_id
+        %td= link_to 'Show', dashboard
+        %td= link_to 'Edit', edit_dashboard_path(dashboard)
+        %td= link_to 'Destroy', dashboard, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to new_user_dashboard_path(@user), class: 'btn btn-default' do
+  = fa_icon 'plus-circle', text: 'New Dashboard'

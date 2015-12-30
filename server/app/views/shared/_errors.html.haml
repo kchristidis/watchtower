@@ -1,0 +1,14 @@
+- if model.errors.any?
+  .alert.alert-warning.alert-dismissable
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} &times;
+    %strong
+      - if model.try :error_header
+        = pluralize(model.errors.count, "error")
+        = model.error_header
+      - else
+        = pluralize(model.errors.count, "error")
+        prohibited this
+        \#{model.class.name.downcase} from being saved:
+    %ul
+      - model.errors.full_messages.each do |msg|
+        %li= msg

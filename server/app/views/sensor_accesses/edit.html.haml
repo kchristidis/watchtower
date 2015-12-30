@@ -1,0 +1,10 @@
+.container.pad20
+  = legend "Editing Sensor Access"
+  = render 'form'
+  %br
+  = legend 'Delete Sensor Access'
+  = link_to @sensor_access,
+    method: :delete,
+    confirm: 'Delete this sensor access?',
+    class: 'btn btn-danger' do
+    = fa_icon 'times', text: 'Delete'

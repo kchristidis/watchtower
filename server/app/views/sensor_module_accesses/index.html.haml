@@ -1,0 +1,25 @@
+- @sensor_module_accesses ||= @sensor_module.sensor_module_accesses
+
+= legend "User Access List for #{@sensor_module.name}"
+
+%table.show-page-table
+  %thead
+    %tr
+      %th Sensor module
+      %th User
+      %th
+      %th
+      
+  %tbody
+    - @sensor_module_accesses.each do |sensor_module_access|
+      %tr
+        %td= sensor_module_access.sensor_module_id
+        %td= sensor_module_access.user_id
+        %td= link_to 'Edit', edit_sensor_module_access_path(sensor_module_access)
+        %td= link_to 'Destroy', sensor_module_access, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to new_sensor_module_sensor_module_access_path(@sensor_module),
+  class: 'btn btn-default' do
+  = fa_icon 'plus-circle', text: 'Add User Access'

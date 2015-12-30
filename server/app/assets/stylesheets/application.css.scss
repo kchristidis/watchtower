@@ -1,0 +1,93 @@
+@import "font-awesome";
+@import "jquery.ui.all";
+@import "tipsy";
+@import "*";
+@import "bootstrap";
+
+body, html {
+  height: 100%;
+}
+
+.green {
+  fill: green;
+}
+
+.control-svg text {
+  cursor: pointer;
+  user-select: none;
+  font-size: 18px;
+}
+
+.control-svg text:hover {
+  fill: darkblue;
+}
+
+.black-frame {
+  border: 1px solid black;
+  border-radius: 3px;
+}
+
+table.show-page-table {
+  @extend .table;
+  @extend .table-hover;
+  @extend .table-condensed;
+}
+
+.dashboard-graph {
+  @extend .full-height;
+  @extend .pad20;
+  @extend .wrap;
+  svg {
+    @extend .black-frame;
+  }
+}
+
+nav.navbar {
+  border-radius: 0px;
+  margin-bottom: 0px;
+}
+
+button.btn-refresh-graph {
+  float: right;
+}
+
+.pad20 {
+  margin: 2%;
+  padding: 0;
+}
+
+.float-right {
+  float: right;
+}
+
+.container.full-height {
+  height: 100%;
+}
+
+.container.blank {
+  height: 500px;
+  padding: 0;
+  margin: 0;
+}
+
+.alert-error {
+  @extend .alert-danger;
+}
+
+.field_with_errors {
+  @extend .has-error;
+  display: table-cell;
+}
+
+.table-responsive {
+  overflow: scroll;
+  td {
+    max-width: 100px;
+    overflow: auto;
+    white-space: nowrap;
+  }
+}
+
+.to-show {
+  display: none;
+}

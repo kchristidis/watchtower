@@ -1,0 +1,4 @@
+- if flash[:info].present?
+  .alert.alert-info
+    %button.close{"data-dismiss" => "alert", :type => "button"} &times;
+    %strong= flash[:info].join('<br>').html_safe

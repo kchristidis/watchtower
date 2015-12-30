@@ -1,0 +1,48 @@
+; Here is an example sensor configuration file.
+; Below is an explanation of options that can be specified.
+; [sensor name]
+; pk: the id of the sensor
+; address: the i2c address of the sensor
+; callback: name of callback function for processing sensor data
+; ctrl_reg: register address for sending control commands
+; ctrl_power_on: byte that powers the sensor on
+; custom_capture_func: name of custom function for capturing data from sensor
+; custom_init_func: name of custom initialization function for sensor
+; description: description of sensor
+; power_signal_required: boolean specifying whether to sensor requires command to power up
+
+[temperature]
+pk = 1
+address = 0x48
+callback = convert_temp
+description = Temperature
+
+[luminosity]
+pk = 2
+address = 0x29
+callback = convert_lux
+ctrl_reg = 0x80
+ctrl_power_on = 0x03
+data_reg = 0x8C
+description = Luminosity
+power_signal_required = True
+
+[barometric pressure]
+pk = 3
+address = 0x77
+callback = convert_bp
+custom_capture_func = capture_bp
+custom_init_func = init_bp
+description = Barometric Pressure
+
+[number of people]
+pk = 4
+custom_capture_func = count_people
+description = Number of People
+# address = 0x39
+# ctrl_reg = 0x80
+# ctrl_power_on = 0x01
+# custom_capture_func = capture_gest
+# custom_init_func = init_gest
+# description = Number of People
+# power_signal_required = True

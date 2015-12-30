@@ -1,0 +1,29 @@
+- @sensor_accesses ||= @sensor.sensor_accesses
+
+= legend 'Sensor Access'
+
+%table.show-page-table
+  %thead
+    %tr
+      %th Sensor
+      %th Module
+      %th User
+      %th
+      %th
+      %th
+      
+  %tbody
+    - @sensor_accesses.each do |sensor_access|
+      %tr
+        %td= sensor_access.sensor_id
+        %td= sensor_access.sensor_module_id
+        %td= sensor_access.user_id
+        %td= link_to 'Show', sensor_access
+        %td= link_to 'Edit', edit_sensor_access_path(sensor_access)
+        %td= link_to 'Destroy', sensor_access, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to new_sensor_sensor_access_path(@sensor),
+  class: 'btn btn-default' do
+  = fa_icon 'plus-circle', text: 'New Sensor Access'

@@ -1,0 +1,14 @@
+.form-horizontal {
+  .actions {
+    @extend .col-md-12;
+  }
+  .form-group {
+    label {
+      @extend .control-label;
+      @extend .col-md-3;
+    }
+    input {
+      @extend .form-control;
+    }
+  }
+}

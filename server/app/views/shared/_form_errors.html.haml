@@ -1,0 +1,8 @@
+- if model.errors.any?
+  .form_errors.alert.alert-dismissable.alert-danger{role: 'alert'}
+    = button_tag type: 'button', class: 'close', data: {dismiss: 'alert'} do
+      = fa_icon 'times'
+    %ul
+    - model.errors.full_messages.each do |message|
+      %li
+        = message

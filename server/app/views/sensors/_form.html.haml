@@ -1,0 +1,24 @@
+- readonly ||= false
+- url ||= @sensor
+= render 'shared/errors', model: @sensor
+= form_for @sensor, url: url do |f|
+  .form-group.input-group
+    %span.input-group-addon
+      = fa_icon 'compass'
+    = f.text_field :name,
+      placeholder: "name",
+      class: 'form-control',
+      readonly: readonly
+  .form-group.input-group
+    %span.input-group-addon
+      = fa_icon 'sitemap'
+    = f.text_field :sensor_module_id,
+      placeholder: "sensor_module_id",
+      class: 'form-control',
+      readonly: true
+  - unless readonly
+    .actions
+      = link_back do
+        = fa_icon 'arrow-left', text: 'Back'
+      = f.button :submit, class: 'btn btn-default' do
+        = fa_icon 'save', text: 'Save'

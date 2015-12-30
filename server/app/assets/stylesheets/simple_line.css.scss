@@ -1,0 +1,52 @@
+g.tick line {
+  stroke: #ccc;
+}
+
+.chart-title {
+  font: 37px Arial;
+  text-anchor: middle;
+}
+
+g.legend {
+  padding: 15px;
+  font: 16px Arial;
+  text-anchor: end;
+}
+
+tspan.legend-header {
+}
+
+tspan.temp-legend {
+  fill: red;
+}
+
+path {
+  stroke: #555;;
+  stroke-width: 1;
+  fill: none;
+}
+
+.axis path,
+.axis line{
+  fill: none;
+  stroke: black;
+}
+
+path.lum-line {
+  stroke: "steelblue";
+  stroke-width: 2;
+}
+
+path.temp-line {
+  stroke: "red";
+  stroke-width: 2;
+}
+
+svg {
+  background-color: #f8f8f8;
+}
+
+.reload-btn {
+  float: left;
+  margin-left: 20px;
+}
