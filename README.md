@@ -10,6 +10,8 @@ Allow others to access a sensor box you own using the dashboard.
 
 Use the REST API to programmatically export sensor data, and build applications on top of **Watchtower**.
 
+[Video presentation](https://www.youtube.com/watch?v=rJIvThQTJWE) of the project on Design Day: 24m01s to 25m02s
+
 ## Contents
 
   - Source code for the Web interface
