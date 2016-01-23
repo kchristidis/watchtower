@@ -1,8 +1,11 @@
 This software is licensed under the Apache 2 license, quoted below.
 
 Copyright 2015 Andrew Kofink <ajkofink@ncsu.edu>
+
 Copyright 2015 Spencer Hitchins <jshitchi@ncsu.edu>
+
 Copyright 2015 Scott Whalen <swwhalen@ncsu.edu>
+
 Copyright 2015 Konstantinos Christidis <kchrist@ncsu.edu>
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
